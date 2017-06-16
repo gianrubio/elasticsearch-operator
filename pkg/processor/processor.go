@@ -231,7 +231,6 @@ func (p *Processor) deleteElasticSearchCluster(c *myspec.ElasticsearchCluster) e
 	p.k8sclient.DeleteServices(c.Metadata.Name)
 	p.k8sclient.DeleteStorageClasses(c.Metadata.Name)
 
-	// Leave PV + PVC's for now?
 	return nil
 }
 
