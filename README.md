@@ -36,7 +36,7 @@ Following parameters are available to customize the elastic cluster:
 - data-node-replicas: Number of data node replicas
 - zones: Define which zones to deploy data nodes to for high availability (_Note: Zones are evenly distributed based upon number of data-node-replicas defined_)
 - data-volume-size: Size of persistent volume to attach to data nodes
-- elastic-search-image: Override the elasticsearch image (e.g. `upmcenterprises/docker-elasticsearch-kubernetes:5.3.1`)
+- elastic-search-image: Override the elasticsearch image (e.g. `upmcenterprises/docker-elasticsearch-kubernetes:6.1.3`)
 - keep-secrets-on-delete (Boolean): Tells the operator to not delete cert secrets when a cluster is deleted
 - [snapshot](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html)
   - scheduler-enabled: If the cron scheduler should be running to enable snapshotting
@@ -127,8 +127,8 @@ Both operator and cluster can be deployed using Helm charts:
 
 ```
 $ helm repo add es-operator https://raw.githubusercontent.com/upmc-enterprises/elasticsearch-operator/master/charts/
+$ helm install --name=elasticsearch es-operator/elasticsearch --set kibana.enabled=True --set cerebro.enabled=True --set zones="{eu-west-1a,eu-west-1b}" --namespace logging 
 $ helm install --name elasticsearch-operator es-operator/elasticsearch-operator --set rbac.enabled=True --namespace logging 
-$ helm install --name=elasticsearch es-operator/elasticsearch --set kibana.enabled=True --set cerebro.enabled=True --set zones="{eu-west-1a,eu-west-1b}" --namespace logging
 ```
 ```  
 ⚡ $helm list
@@ -144,7 +144,7 @@ elasticsearch-operator  	1       	Thu Dec  7 11:49:13 2017	DEPLOYED	elasticsearc
 ```
 spec:
   kibana: 
-    image: upmcenterprises/kibana:5.3.1
+    image: docker.elastic.co/kibana/kibana-oss:6.2.1
   cerebro:
     image: upmcenterprises/cerebro:0.6.8
 ```
