@@ -2,7 +2,21 @@ apiVersion: v1
 entries:
   elasticsearch:
   - apiVersion: v1
-    created: 2018-02-12T15:02:12.792343+01:00
+    created: 2018-02-19T15:55:28.757873+01:00
+    description: A Helm chart for Elasticsearch cluster
+    digest: 42c6b466cf2f61863deff51d9578e7925faf17be68399ce65f586455f09ed0c5
+    maintainers:
+    - email: alen.komljen@live.com
+      name: komljen
+      url: https://akomljen.com
+    name: elasticsearch
+    sources:
+    - https://github.com/upmc-enterprises/elasticsearch-operator
+    urls:
+    - elasticsearch-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v1
+    created: 2018-02-19T15:55:28.756299+01:00
     description: A Helm chart for Elasticsearch cluster
     digest: de2209bffb7a05c436354b2514abadacb83007dd0d59941cb78b340c6db9cc52
     maintainers:
@@ -16,7 +30,7 @@ entries:
     - elasticsearch-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
-    created: 2018-02-12T15:02:12.790764+01:00
+    created: 2018-02-19T15:55:28.755536+01:00
     description: A Helm chart for Elasticsearch cluster
     digest: 37bc0b51a58e73e29221062df665ce7234f36689dc7051164141680b6c0096bd
     maintainers:
@@ -30,7 +44,21 @@ entries:
     version: 0.1.0
   elasticsearch-operator:
   - apiVersion: v1
-    created: 2018-02-12T15:02:12.794036+01:00
+    created: 2018-02-19T15:55:28.759611+01:00
+    description: A Helm chart for Elasticsearch operator
+    digest: 8f36f66ae0a3ee51e3f65fe36055b6fb32a5838f9f459d1bef5690cd816f50f8
+    maintainers:
+    - email: alen.komljen@live.com
+      name: komljen
+      url: https://akomljen.com
+    name: elasticsearch-operator
+    sources:
+    - https://github.com/upmc-enterprises/elasticsearch-operator
+    urls:
+    - elasticsearch-operator-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v1
+    created: 2018-02-19T15:55:28.758493+01:00
     description: A Helm chart for Elasticsearch operator
     digest: 65b48cf707f5bd8170a22f4827236c36591dde215712b29a8df0136e64d57a49
     maintainers:
@@ -56,4 +84,4 @@ entries:
     urls:
     - elasticsearch-operator-0.1.0.tgz
     version: 0.1.0
-generated: 2018-02-12T15:02:12.789477+01:00
+generated: 2018-02-19T15:55:28.754368+01:00

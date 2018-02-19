@@ -1,6 +1,7 @@
 {{- if .Values.kibana.ingress.enabled -}}
 {{- $servicePort := .Values.kibana.service.port -}}
 {{- $ingressPath := .Values.kibana.ingress.path -}}
+{{- $serviceName := include "elasticsearch-operator.fullname" . -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -28,7 +29,7 @@ spec:
         paths:
           - path: {{ $ingressPath}}
             backend:
-              serviceName: {{ template "elasticsearch-operator.fullname" . }}-kibana
-              servicePort: {{ .Values.kibana.service.port }}}}
+              serviceName: {{ $serviceName }}-kibana
+              servicePort: {{ $servicePort }}
   {{- end }}
 {{- end }}

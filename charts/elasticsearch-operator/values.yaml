@@ -27,7 +27,7 @@ kibana:
   ingress:
     ## If true, kibana Ingress will be created
     ##
-    enabled: true
+    enabled: false
     path: /
 
     ## Annotations for kibana Ingress
@@ -50,7 +50,7 @@ cerebro:
   ingress:
     ## If true, kibana Ingress will be created
     ##
-    enabled: true
+    enabled: false
     path: /
 
     ## Annotations for kibana Ingress

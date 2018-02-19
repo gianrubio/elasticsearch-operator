@@ -7,7 +7,7 @@ spec:
   type: {{ .Values.kibana.service.type }}
   ports:
     - port: {{ .Values.kibana.service.port }}
-      targetPort: {{ .Values.cerebro.service.targetPort }}
+      targetPort: {{ .Values.kibana.service.targetPort }}
       protocol: TCP
       name: http
   selector:

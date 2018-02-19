@@ -1,6 +1,7 @@
 {{- if .Values.cerebro.ingress.enabled -}}
 {{- $servicePort := .Values.cerebro.service.port -}}
 {{- $ingressPath := .Values.cerebro.ingress.path -}}
+{{- $serviceName := include "elasticsearch-operator.fullname" . -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -28,7 +29,7 @@ spec:
         paths:
           - path: {{ $ingressPath}}
             backend:
-              serviceName: {{ template "elasticsearch-operator.name" . }}-cerebro
-              servicePort: {{ .Values.cerebro.service.port }}}}
+              serviceName: {{ $serviceName }}-cerebro
+              servicePort: {{ $servicePort }}
   {{- end }}
 {{- end }}
