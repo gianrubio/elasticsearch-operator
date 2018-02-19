@@ -15,3 +15,53 @@ resources:
     memory: 128Mi
 rbac:
   enabled: false
+service:
+  type: ClusterIP
+  port: 80
+
+kibana:
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 5601
+  ingress:
+    ## If true, kibana Ingress will be created
+    ##
+    enabled: true
+    path: /
+
+    ## Annotations for kibana Ingress
+    ##
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+
+    hosts: 
+      - kibana.example.com
+    tls: 
+    - secretName: kibana.example.com
+      hosts:
+        - kibana.example.com
+cerebro:
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 9000 
+  ingress:
+    ## If true, kibana Ingress will be created
+    ##
+    enabled: true
+    path: /
+
+    ## Annotations for kibana Ingress
+    ##
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+      
+    hosts: 
+      - cerebro.example.com
+    tls: 
+    - secretName: cerebro.example.com
+      hosts:
+        - cerebro.example.com

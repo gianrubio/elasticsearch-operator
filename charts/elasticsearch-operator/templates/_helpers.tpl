@@ -14,3 +14,18 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- $name := default .Chart.Name .Values.nameOverride -}}
 {{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/* Generate basic labels */}}
+{{- define "elasticsearch-operator.labels" }}
+app: {{ template "elasticsearch-operator.name" . }}
+heritage: {{.Release.Service }}
+release: {{.Release.Name }}
+chart: {{ template "elasticsearch-operator.chartref" . }}
+{{- if .Values.podLabels}}
+{{ toYaml .Values.podLabels }}
+{{- end }}
+{{- end }}
+
+{{- define "elasticsearch-operator.chartref" -}}
+  {{- replace "+" "_" .Chart.Version | printf "%s-%s" .Chart.Name -}}
+{{- end -}}

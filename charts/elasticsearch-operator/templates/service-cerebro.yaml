@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "elasticsearch-operator.fullname" . }}-cerebro
+  labels: {{ include "elasticsearch-operator.labels" . | indent 4 }}
+
+spec:
+  type: {{ .Values.cerebro.service.type }}
+  ports:
+    - port: {{ .Values.cerebro.service.port }}
+      targetPort: {{ .Values.cerebro.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    role: cerebro
